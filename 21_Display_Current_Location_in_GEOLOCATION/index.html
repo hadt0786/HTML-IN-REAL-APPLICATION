@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Display Current Location in GEOLOCATION</title>
+</head>
+
+<body>
+
+    <input type="button" value="Show My Position" onclick="display()">
+    <br>
+
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        function display() {
+            navigator.geolocation.getCurrentPosition({
+                function (position) {
+                    var resut = 'Latitude : ' + position.coords.latitude + '<br>Longitude : ' + position.coords
+                        .longitude;
+                    document.getElementById('result').innerHTML = result;
+
+                },
+                function (error) {
+                    switch (error.code) {
+                        case error.PERMISSION_FAILED:
+                            document.getElementById('result').innerHTML =
+                                'USER DENIED THE REQUEST FOR GEOLOCATION';
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            document.getElementById('result').innerHTML = 'LOCATION POSITION IS UNAVAILABLE';
+
+                            break;
+                        case error.TIMEOUT:
+                            document.getElementById('result').innerHTML =
+                                'THE REQUEST TO GET USER LOCATION IS TIMED OUT';
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            document.getElementById('result').innerHTML = 'AN UNKNOWN ERROR OCCURED';
+                            break;
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

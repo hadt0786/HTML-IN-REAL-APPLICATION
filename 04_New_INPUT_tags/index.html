@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>New Input type controls in HTML5</title>
+</head>
+
+<body>
+
+    <h3>New Input type controls</h3>
+    <form>
+
+        <table>
+            <tr>
+                <td> Username </td>
+                <td><input type="text" required="required" placeholder="Username" minlength="3" maxlength="10"
+                        autofocus="autofocus"></td>
+
+            </tr>
+            <tr>
+                <td>Password </td>
+                <td><input type="password" placeholder="password" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></td>
+
+            </tr>
+            <tr>
+                <td> Number </td>
+                <td><input type="number" min="18" max="100" step="1" value="18" required="required"></td>
+
+            </tr>
+            <tr>
+                <td>Range </td>
+                <td><input type="range" min="0" max="10" step="1" value="5"></td>
+
+            </tr>
+            <tr>
+                <td>Email </td>
+                <td><input type="email"></td>
+
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td><input type="url"></td>
+
+            </tr>
+
+            <tr>
+                <td>
+                <td>Favious</td>
+                <td>
+                    <datalist id="favious">
+                        <select name="favious">
+                            <option value="f1">Favious 1</option>
+                            <option value="f2">Favious 2</option>
+                            <option value="f3">Favious 3</option>
+                        </select>
+                    </datalist>
+                    <input type="text" name="favious" list="favious" multiple="multiple">
+                </td>
+                </td>
+            </tr>
+
+
+        </table>
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Draw Image in Canvas In HTML 5</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="300" height="100" style="border: 1px solid black"></canvas>
+    <br>
+    <input type="button" value="Draw Image" onclick="drawImage()">
+    <script type="text/javascript">
+        function drawImage() {
+            var mycanvas = document.getElementById('mycanvas');
+            var ctx = mycanvas.getContext('2d');
+
+            var img = new Image();
+            img.src = 'images/thumb3.gif';
+            img.onload = function () {
+                ctx.drawImage(img, 20, 20);
+            }
+        }
+    </script>
+</body>
+
+</html>

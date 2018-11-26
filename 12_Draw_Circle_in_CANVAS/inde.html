@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Draw Circle in Canvas In HTML 5</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="300" height="100" style="border: 1px solid black"></canvas>
+    <br>
+    <input type="button" value="Draw Circle" onclick="drawCircle()">
+    <script type="text/javascript">
+        function drawCircle() {
+            var mycanvas = document.getElementById('mycanvas');
+            var ctx = mycanvas.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(100, 75, 60, 0, 2 * Math.PI);
+            ctx.fillStyle = 'green';
+            ctx.fill();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#003300';
+            ctx.stroke();
+
+        }
+    </script>
+</body>
+
+</html>

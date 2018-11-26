@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="IS0-8859-1">
+
+    <title>Single File Select with INPUT FIle type</title>
+</head>
+
+<body>
+    <form name="myform">
+        PHOTO
+        <input type="file" onchange="selectFile()" id="fileInput" accept="image/*">
+        <br>
+        <div id="result"></div>
+    </form>
+
+    <script type="text/javascript">
+        function selectFile() {
+            var file = document.getElementById("fileInput").files[0];
+            var imageType = /image.*/;
+            if (!file.type.match(imageType)) {
+                alert('Invalid');
+            } else {
+                var result = 'File Name : ' + file.name;
+                result += '<br>File Size : ' + file.size + ' (bytes)';
+                result += '<br>File Type : ' + file.type + ' <br>';
+                document.getElementById('result').innerHTML = result;
+
+                // load Photo
+
+                var img = document.createElement('img');
+                img.file = file;
+                document.getElementById('result').appendChild('img');
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+                reader.readAsDataURL(file);
+
+            }
+        }
+    </script>
+</body>
+
+</html>

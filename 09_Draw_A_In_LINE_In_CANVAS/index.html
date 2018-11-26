@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>Draw Line in Canvas In HTML 5</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="300" height="100" style="border: 1px solid black"></canvas>
+    <br>
+    <input type="button" value="Draw Line" onclick="drawline()">
+    <script type="text/javascript">
+        function drawline() {
+            var mycanvas = document.getElementById('mycanvas');
+            var ctx = mycanvas.getContext('2d');
+            ctx.moveTo(10, 10);
+            ctx.lineTo(10, 10);
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = 'red';
+            ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>

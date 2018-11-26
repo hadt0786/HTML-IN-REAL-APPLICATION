@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Use Simple Value in LOCALSTORAGE In HTML 5</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Write simple values" onclick="writeSimpleValues()">
+        <input type="button" value="Read simple values" onclick="readSimpleValues()">
+        <br>
+        <div id="result">
+
+        </div>
+    </form>
+
+    <script type="text/javascript">
+
+        function writeSimpleValues(){
+            var fullName = 'AKASH';
+            var age = "25";
+            localStorage.setItem('fullName', fullName);
+            localStorage.setItem('age', age);
+
+        }
+
+        function readSimpleValues(){
+            var fullName = localStorage.getItem('fullName');
+            var age = localStorage.getItem('age');
+            var result = 'Full name '+fullName;
+            result+='AGe '+age;
+            document.getElementById('result').innerHTML = result;
+            
+        }
+
+    </script>
+</body>
+
+</html>

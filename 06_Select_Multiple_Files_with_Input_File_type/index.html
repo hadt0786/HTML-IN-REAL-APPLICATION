@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset="IS0-8859-1">
+
+    <title>Select Multiple File with INPUT FIle type</title>
+</head>
+
+<body>
+    <form name="myform">
+        PHOTO
+        <input type="file" id="photos" multiple="mulitple" onchange="selectPhotos()">
+        <br>
+        <div id="result"></div>
+        <div id="preview"></div>
+    </form>
+
+    <script type="text/javascript">
+        function selectPhotos() {
+            var file = document.getElementById("photos").files;
+            var s = 'Number of Photos : ' + photos.length;
+
+            for (var i = 0; i < photos.length; i++) {
+
+                var photos = photos[i];
+
+                s += '<br> Names : ' + photo.name;
+                s += '<br> Names : ' + photo.type;
+                s += '<br> Names : ' + photo.size;
+                s += '============================';
+
+                // Display photos
+
+                var img = document.createElement("img");
+                img.file = photo;
+                document.getElementById('preview').appendChild(img);
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+
+                })(img);
+                reader.readAsDataURL(photo);
+
+            }
+            document.getElementById('result').innerHTML = s;
+
+        }
+    </script>
+</body>
+
+</html>

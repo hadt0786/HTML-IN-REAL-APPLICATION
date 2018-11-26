@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Draw Path in Canvas In HTML 5</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="300" height="100" style="border: 1px solid black"></canvas>
+    <br>
+    <input type="button" value="Draw Path" onclick="drawpath()">
+    <script type="text/javascript">
+        function drawpath() {
+            var mycanvas = document.getElementById('mycanvas');
+            var ctx = mycanvas.getContext('2d');
+
+            //line 1
+            ctx.moveTo(10, 10);
+            ctx.lineTo(10, 10);
+
+            //line 2
+            ctx.lineTo(500, 90);
+
+
+
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = 'red';
+            ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>

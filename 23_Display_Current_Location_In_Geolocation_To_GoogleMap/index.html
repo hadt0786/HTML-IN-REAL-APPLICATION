@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Display Current Location in GEOLOCATION to Image</title>
+</head>
+
+<body>
+
+    <input type="button" value="Show My Position" onclick="display()">
+    <br>
+
+    <div id="mymap"></div>
+
+    <script type="text/javascript">
+        function display() {
+            navigator.geolocation.getCurrentPosition({
+                    function (position) {
+
+                        var mydiv = document.createElement('div');
+                        mydiv.id = 'mydiv';
+                        mydiv.style.width = '500px';
+                        mydiv.style.height = '500px';
+                        document.getElementById('mymap').appendChild(mydiv);
+                        var location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                        var myOptions = {
+                            zoom: 15,
+                            center: location,
+                            navigationControlOptions: {
+                                style: google.maps.navigationControlStyle.SMALL
+                            },
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        var map = new google.maps.Map(document.getElementById('mydiv'), myOptions);
+
+
+                    },
+
+                    function (error) {
+                        switch (error.code) {
+                            case error.PERMISSION_FAILED:
+                                document.getElementById('result').innerHTML =
+                                    'USER DENIED THE REQUEST FOR GEOLOCATION';
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                document.getElementById('result').innerHTML = 'LOCATION POSITION IS UNAVAILABLE';
+
+                                break;
+                            case error.TIMEOUT:
+                                document.getElementById('result').innerHTML =
+                                    'THE REQUEST TO GET USER LOCATION IS TIMED OUT';
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                document.getElementById('result').innerHTML = 'AN UNKNOWN ERROR OCCURED';
+                                break;
+                        }
+                    }
+                );
+            }
+    </script>
+</body>
+
+</html>

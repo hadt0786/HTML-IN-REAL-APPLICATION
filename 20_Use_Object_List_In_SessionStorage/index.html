@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Use Object List in SESSIONSTORAGE In HTML 5</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Write Object list" onclick="writeObjectlist()">
+        <input type="button" value="Read Object list" onclick="readObjectlist()">
+        <br>
+        <div id="result">
+
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        function writeObjectlist() {
+            var products = [{
+                    id: 'p01',
+                    name: 'name 1',
+                    price: 20
+                },
+                {
+                    id: 'p02',
+                    name: 'name 2',
+                    price: 21
+                },
+                {
+                    id: 'p03',
+                    name: 'name 3',
+                    price: 22
+                }
+            ]
+            sessionStorage.setItem('product', JSON.stringify(product));
+        }
+
+        function readObjectlist() {
+            var products = JSON.parse(sessionStorage.getItem('product'));
+            var result = '';
+            for (var i = 0; i < products.length; i++) {
+                var result = 'ID ' + product.id;
+                result += '<br>Name ' + product.name;
+                result += '<br>Price ' + product.price;
+
+
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

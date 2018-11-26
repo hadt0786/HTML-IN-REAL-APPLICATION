@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta>
+    <title>Drag and Drop Elements</title>
+    <style type="text/css">
+        #div1,
+        #div2 {
+            float: left;
+            width: 140px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function dragstart(event) {
+            event.dataTransfer.setData('id', event.target.id);
+
+        }
+
+        function dragover(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var id = event.dataTransfer.getData('id');
+            document.getElementById('div2').appendChild(document.getElementById(id));
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="div1">
+        <img id="photo" src="images/thumb1.gif" draggable="true" ondragstart="dragstart(event)" ondragend="dragend(event)" alt="">
+    </div>
+    <div id="div2" ondragover="dragover(event)" ondrop="drop(event)"></div>
+</body>
+
+
+</html>

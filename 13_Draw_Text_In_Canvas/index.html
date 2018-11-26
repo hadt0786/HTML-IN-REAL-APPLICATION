@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <title>Draw Rectangel in Canvas In HTML 5</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="300" height="100" style="border: 1px solid black"></canvas>
+    <br>
+    <input type="button" value="Draw Text" onclick="drawText()">
+    <script type="text/javascript">
+        function drawText() {
+            var mycanvas = document.getElementById('mycanvas');
+            var ctx = mycanvas.getContext('2d');
+            ctx.fillStyle = 'red';
+            ctx.font = 'bold 50px Arial';
+            ctx.fillText('AKASH', 50, 100);
+        }
+    </script>
+</body>
+
+</html>

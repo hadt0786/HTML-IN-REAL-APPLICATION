@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta>
+    <title>Drag and Drop Files</title>
+    <style type="text/css">
+        #drop_zone {
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+            font: 20pt bold 'Vollkorn';
+            color: #bbb;
+
+            border: 2px dashed #bbb;
+        }
+
+        output {
+            display: inline;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function dragover(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'copy';
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var files = event.dataTransfer.files;
+            document.getElementById('result').innerHTML = '';
+            var ul = document.createElement('ul');
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(file.name + "_" + file.type + " - " + file.size + " bytes"));
+
+                // Display Photos
+
+                var img = doument.createElement('img');
+                img.file = file;
+                var div = document.createElement('div');
+                div.appendChild(img);
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+
+                })(img);
+                reader.readAsDataURL(file);
+                li.appendChild(document.createElement('br'));
+                li.appendChild(img);
+                li.appendChild(document.createElement('br'));
+                ul.appendChild(li);
+
+            }
+            document.getElementById('result').appendChild(ul);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="drop_zone" ondragover="dragover(event)" ondrop="drop(event)"> drag files here
+    </div>
+    <output id="result"></output>
+</body>
+
+
+</html>

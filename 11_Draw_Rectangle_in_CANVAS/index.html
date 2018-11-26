@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>Draw Rectangel in Canvas In HTML 5</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="300" height="100" style="border: 1px solid black"></canvas>
+    <br>
+    <input type="button" value="Draw Reactabgle" onclick="drawRectangle()">
+    <script type="text/javascript">
+        function drawRectangle() {
+            var mycanvas = document.getElementById('mycanvas');
+            var ctx = mycanvas.getContext('2d');
+            ctx.fillStyle = 'blue';
+            ctx.fillRectangle(50, 50, 20, 100);
+        }
+    </script>
+</body>
+
+</html>

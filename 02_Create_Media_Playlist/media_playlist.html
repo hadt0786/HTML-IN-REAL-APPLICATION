@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Video Playlist</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#playlist a").on("click", function () {
+                $("#videoarea").attr({
+                    "src": $(this).attr("movieur1"),
+                    "autoplay": "autoplay"
+                })
+            })
+            $("#videoarea").attr({
+                "src": $("#playlist a").eq(0).attr("moviuer1")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <video id="videoarea" controls="controls" autoplay="autoplay" width="300" height="100">
+        <source src="media/video1.mp4" type="video/mp4" />
+
+        <ul id="playlist">
+            <li>
+                <a href="#" movieur1="media/video1.mp4">Video 1</a>
+            </li>
+            <li>
+                <a href="#" movieur1="media/video2.mp4">Video 2</a>
+            </li>
+            <li>
+                <a href="#" movieur1="media/video3.mp4">Video 3</a>
+            </li>
+        </ul>
+    </video>
+</body>
+
+</html>
